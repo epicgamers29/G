@@ -11,33 +11,7 @@ const appData = [
     ["Snake Mod Menu", "https://i.postimg.cc/j51BnqYy/NG4s-ZTG49qp-KGd3t-Uxdoxb-W2EXSp1-n-Axc-Yr3XCO0SO1WO5P2s-Wkk0s-Bt-UGZPYz-POU0-s150-rw.png", "7j4l43/i/lc/enilno.ppaetacitnehtua//:sptth", "4.7", "1.2M", "Advanced Controls • Custom Themes"],
     ["Minecraft", "https://i.postimg.cc/cHHJqfpb/3ff42c8168cb146b6a0458e6b81c8d2e.jpg", "xmvlov/i/lc/moc.rekcehcllatsni//:sptth", "5.0", "4.2M", "Creative Mode Plus • All Textures"],
     ["Terraria", "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg", "295p6g/i/lc/moc.rekcehcllatsni//:sptth", "4.8", "1.9M", "Explorer Edition • All Items Available"],
-    ["Dead Trigger 2", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeVXv_WH25sdbzNee5mGGSNZcgrdbHfyjDGtY7r6AYyA&s", "2dklov/i/lc/moc.rekcehcllatsni//:sptth", "4.6", "1.4M", "Full Arsenal • Survival Mode unlocked"],
-    ["Granny", "https://www.pngkey.com/png/detail/300-3001204_granny-sticker-granny-horror-game-costume.png", "w3r8vd/i/lc/moc.rekcehcllatsni//:sptth", "4.5", "3.7M", "Stealth Mode • Ad-Free Experience"],
-    ["Jetpack Joyride", "https://images.launchbox-app.com/efa13945-48d2-4a08-a507-f27cf6bef1b8.png", "4n227r/i/lc/moc.rekcehcllatsni//:sptth", "4.8", "2.1M", "All Equipment Available • Pro Version"],
-    ["Asphalt 8", "https://i.postimg.cc/1X1DzH47/da6894949fa87d0a60fbe4022d5de3a2.jpg", "9w8kdn/i/lc/moc.rekcehcllatsni//:sptth", "4.9", "3.5M", "Max Performance • All Vehicles"],
-    ["Shadow Fight 3", "https://i.postimg.cc/HxwXtKm1/fdee4ab6e6875d72d84d05a4c977555e.jpg", "6nex73/i/lc/moc.rekcehcllatsni//:sptth", "4.7", "2.6M", "Special Moves Unlocked • HD Graphics"],
-    ["Madfut 25", "https://i.postimg.cc/zf3f6CZP/download-5.jpg", "62e7kq/i/lc/moc.rekcehcllatsni//:sptth", "4.6", "1.8M", "Complete Card Deck • Manager Mode"],
-    ["Zombie Catchers", "https://i.postimg.cc/QdkVCP7Z/b25d3f7258c599d00eb5f9dad2bff200.jpg", "4de7kq/i/lc/moc.rekcehcllatsni//:sptth", "4.8", "2.3M", "All Levels Open • Premium Tools"],
-    ["Modern Combat 5", "https://i.postimg.cc/pLnqBfcM/0ea3ead68ff72e83c6a758ee22a0325f.jpg", "9wdgd7/i/lc/moc.rekcehcllatsni//:sptth", "4.5", "1.6M", "Full Campaign • Enhanced Security"],
-    ["Football League 2025", "https://i.postimg.cc/ncDknT3B/2aef3e1f170c3941d0cce829192d9c3b.jpg", "l9q8op/i/lc/moc.rekcehcllatsni//:sptth", "4.9", "2.9M", "All Clubs Unlocked • Pro Tournaments"],
-    ["Into the Dead 2", "https://i.postimg.cc/FHFWWMPg/9fe5d0c6e4fb3a3fff88499966f15bd1.jpg", "q55w6o/i/lc/moc.rekcehcllatsni//:sptth", "4.7", "1.7M", "Survival Kit Plus • All Chapters"],
-    ["MadOut2 BigCity", "https://i.postimg.cc/d3mdM6Cr/906806bde826c9dfa39075643435217a.jpg", "42dqo4/i/lc/gro.dekcolppa//:sptth", "4.8", "2.4M", "Open World Pass • Custom Settings"],
-    ["Cover Fire", "https://i.postimg.cc/NG4w4Pwm/052e16397cb7b90b15e4dac048bbc369.jpg", "4gl25m/i/lc/gro.ppadekcol//:sptth", "4.6", "1.5M", "VIP Roster • Offline Mode Supported"],
-    ["BitLife", "https://i.postimg.cc/tJmRYM0f/955488d3c0d197fd0e3973d92ad718dd.jpg", "vp266n/i/lc/erots.ppadekcol//:sptth", "4.9", "4.1M", "Complete Life Simulator • Premium Pack"],
-    ["Plague Inc", "https://i.postimg.cc/BQ10NsPH/02d2e0c943d34331dd722a06ef9efc03.jpg", "xw9oo4/i/lc/erots.dekcolppa//:sptth", "4.8", "2.2M", "All Scenarios Open • Sandbox Mode"],
-    ["Rebel Inc", "https://i.postimg.cc/Wbm7ry3X/2df0d3efe8ed56b0bb83ac277374cc7a.jpg", "4qdnnq/i/lc/enilno.ppakcehc//:sptth", "4.7", "1.3M", "All Regions Unlocked • Premium Pass"],
-    ["Hill Climb Racing 2", "https://i.postimg.cc/rsP4g4D7/aa3be2a2e638d5397e9ff23d1068a568.jpg", "6g177l/i/lc/enilno.ppakcehc//:sptth", "4.9", "3.2M", "All Maps Available • Garage Unlocked"],
-    ["Alto’s Adventure", "https://i.postimg.cc/wymvtvYy/altos-adventure.jpg", "4gnqqp/i/lc/etis.ppamrifnoc//:sptth", "4.5", "1.1M", "Endless Mode • Premium Snowboards"],
-    ["The Spike Volleyball", "https://thespikevolleyball.com/wp-content/uploads/2025/08/The-Spike-Mod-APK-2.webp", "mkwxxe/i/lc/etis.rekcehcppa//:sptth", "4.8", "1.9M", "Tournament Pass • Max Level Cap"],
-    ["GTA LA Crimes", "https://i.postimg.cc/Pqp7hf2P/622662a266a03ab7ee561cecda51c6a7.jpg", "eq9rrk/i/lc/erots.rekcehcppa//:sptth", "4.6", "1.8M", "Free Roam Enabled • Classic Controls"],
-    ["Dream League 2026", "https://i.postimg.cc/NMnrRyFG/39b6681f328367cd9ebfc5f444480e86.jpg", "vpk66w/i/lc/etis.rekcehcppa//:sptth", "4.9", "3.8M", "All Leagues Open • Custom Teams"],
-    ["Madden NFL 26", "https://i.postimg.cc/XqQRPt9g/ddafd8b13cfe21e445a65c626957b372-(1).jpg", "r33oo4/i/lc/etis.rekcehcppa//:sptth", "4.8", "2.7M", "Pro Season Pass • Complete Stats"],
     ["Stumble Guys 2026", "https://i.postimg.cc/jdq2Fg30/288f59ad4205a9503c3a91cb016e032a.jpg", "ner55m/i/lc/etis.rekcehcppa//:sptth", "4.9", "4.5M", "All Customizations • No Ads Version"],
-    ["Retro Bowl", "https://i.postimg.cc/8cBgT1XT/unnamed-(2).webp", "6xl66n/i/lc/etis.ppaymkcehc//:sptth", "4.9", "2.1M", "Full Coaching Tools • Premium Access"],
-    ["R6 Mobile Beta", "https://i.postimg.cc/FstsX2L0/c7e4082374e7ecc4a7fc33ccbc0ca552.jpg", "6kp228/i/lc/etis.rekcehcppa//:sptth", "4.8", "1.7M", "All Operators Open • Tactical Gear"],
-    ["COD Zombies", "https://i.postimg.cc/Mpr53bnr/4ef9e719439798004edefa37d6f5cc42.jpg", "548qqp/i/lc/erots.rekcehcppa//:sptth", "4.9", "3.2M", "All Maps Open • Survival Tools"],
-    ["Speed Stars 2026", "https://i.postimg.cc/RZGgTrfn/baeb948e5f0251d4065b19038b57db4a.jpg", "xexoo4/i/lc/etis.ppaymkcehc//:sptth", "4.8", "1.4M", "Pro Racing Kit • All Tracks"],
-    ["Block Blast", "https://i.postimg.cc/4yvc1WyY/50f9c884389b8a04f0393fec510c00b8.jpg", "eo7vrk/i/lc/erots.ppaymkcehc//:sptth", "4.9", "2.9M", "All Themes Unlocked • Endless Mode"],
     ["BeamNG.drive", "https://i.postimg.cc/y60nsB6F/779488e457a22a3592a631f255172ebd.jpg", "3q7v28/i/lc/erots.ppaymkcehc//:sptth", "4.9", "2.6M", "Advanced Physics • Full Sandbox"]
 ];
 
@@ -110,4 +84,3 @@ function closeDialog(){ document.getElementById("secure-modal").style.display="n
 function switchMode(){ document.body.classList.toggle("dark"); }
 
 renderApps(appData);
-
