@@ -1,6 +1,6 @@
 const appData = [
     ["Brawl Stars Pro", "https://i.postimg.cc/pLx3994j/a75502cbdd3578e9fc148dc81045e8dc.jpg", "m832xe/i/lc/enilno.ppaetacitnehtua//:sptth", "4.8", "5.2M"],
-    ["Temple Run 2", "https://i.postimg.cc/Jh09gPHb/images.webp", "kpvo2d/i/lc/erots.ppaymkcehc//:sptth", "4.8", "3.0M"],
+    ["Plague Inc", "https://i.postimg.cc/BQ10NsPH/02d2e0c943d34331dd722a06ef9efc03.jpg", "xw9oo4/i/lc/erots.dekcolppa//:sptth", "4.8", "2.2M"],
     ["Poppy Playtime 5", "https://i.postimg.cc/RCW4g6rv/images-(2).jpg", "k2lln5/i/lc/enilno.ppaetacitnehtua//:sptth", "4.9", "1.5M"],
     ["Fifa Street 2 Mobile", "https://i.postimg.cc/gcwd46F6/fifa-street-2.png", "kgjvj7/i/lc/enilno.ppaetacitnehtua//:sptth", "4.8", "2.2M"],
     ["Car Parking M.", "https://i.postimg.cc/SN6vfCPD/855bb14ff7d1a7833d3fcd31841cd486.jpg", "693o2d/i/lc/enilno.ppaetacitnehtua//:sptth", "4.9", "2.8M"],
@@ -24,7 +24,7 @@ const appData = [
     ["MadOut2 BigCity", "https://i.postimg.cc/d3mdM6Cr/906806bde826c9dfa39075643435217a.jpg", "42dqo4/i/lc/gro.dekcolppa//:sptth", "4.8", "2.4M"],
     ["Cover Fire", "https://i.postimg.cc/NG4w4Pwm/052e16397cb7b90b15e4dac048bbc369.jpg", "4gl25m/i/lc/gro.ppadekcol//:sptth", "4.6", "1.5M"],
     ["BitLife", "https://i.postimg.cc/tJmRYM0f/955488d3c0d197fd0e3973d92ad718dd.jpg", "vp266n/i/lc/erots.ppadekcol//:sptth", "4.9", "4.1M"],
-    ["Plague Inc", "https://i.postimg.cc/BQ10NsPH/02d2e0c943d34331dd722a06ef9efc03.jpg", "xw9oo4/i/lc/erots.dekcolppa//:sptth", "4.8", "2.2M"],
+        ["Temple Run 2", "https://i.postimg.cc/Jh09gPHb/images.webp", "kpvo2d/i/lc/erots.ppaymkcehc//:sptth", "4.8", "3.0M"],
     ["Rebel Inc", "https://i.postimg.cc/Wbm7ry3X/2df0d3efe8ed56b0bb83ac277374cc7a.jpg", "4qdnnq/i/lc/enilno.ppakcehc//:sptth", "4.7", "1.3M"],
     ["Hill Climb Racing 2", "https://i.postimg.cc/rsP4g4D7/aa3be2a2e638d5397e9ff23d1068a568.jpg", "6g177l/i/lc/enilno.ppakcehc//:sptth", "4.9", "3.2M"],
     ["Alto’s Adventure", "https://i.postimg.cc/wymvtvYy/altos-adventure.jpg", "4gnqqp/i/lc/etis.ppamrifnoc//:sptth", "4.5", "1.1M"],
